@@ -64,7 +64,7 @@ function App() {
   }, []);
 
   return (
-    <>
+    <div>
       <button
         onClick={() => {
           setRunning(!running);
@@ -124,7 +124,7 @@ function App() {
           ))
         )}
       </div>
-    </>
+    </div>
   );
 }
 
