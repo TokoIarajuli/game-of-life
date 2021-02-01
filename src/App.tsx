@@ -1,5 +1,6 @@
 import React, { useCallback, useRef, useState } from "react";
 import produce from "immer";
+import "./App.css";
 
 const numRows = 30;
 const numCols = 50;
@@ -64,7 +65,7 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <div className="App">
       <button
         onClick={() => {
           setRunning(!running);
@@ -74,7 +75,7 @@ function App() {
           }
         }}
       >
-        {running ? "stop" : "start"}
+        {running ? "Stop" : "Start"}
       </button>
 
       <button
@@ -107,6 +108,7 @@ function App() {
         {grid.map((rows, i) =>
           rows.map((col, k) => (
             <div
+              className="grid"
               key={`${i}-${k}`}
               onClick={() => {
                 const newGrid = produce(grid, (gridCopy) => {
@@ -115,10 +117,11 @@ function App() {
                 setGrid(newGrid);
               }}
               style={{
+                marginLeft: "24vw",
                 width: 20,
                 height: 20,
-                backgroundColor: grid[i][k] ? "pink" : undefined,
-                border: "solid 1px black",
+                backgroundColor: grid[i][k] ? "lightblue" : undefined,
+                border: "solid 1px white",
               }}
             />
           ))

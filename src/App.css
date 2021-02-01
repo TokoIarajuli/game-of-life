@@ -1,3 +1,21 @@
 .App {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(133, 141, 114);
   text-align: center;
+}
+
+button {
+  padding: 8px;
+  margin: 5px;
+  text-decoration: none;
+  border: 1px solid lightblue;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: rgb(122, 200, 231);
+  color: white;
+}
+
+button::after {
+  border: none;
 }
