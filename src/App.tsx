@@ -1,6 +1,7 @@
 import React, { useCallback, useRef, useState } from "react";
 import produce from "immer";
 import "./App.css";
+import Typewriter from "typewriter-effect";
 
 const numRows = 30;
 const numCols = 50;
@@ -61,7 +62,7 @@ function App() {
       });
     });
 
-    setTimeout(runSimulation, 100);
+    setTimeout(runSimulation, 150);
   }, []);
 
   return (
@@ -77,7 +78,6 @@ function App() {
       >
         {running ? "Stop" : "Start"}
       </button>
-
       <button
         onClick={() => {
           const rows = [];
@@ -99,6 +99,32 @@ function App() {
       >
         Clear
       </button>
+      <div className="rules">
+        <Typewriter
+          options={{
+            wrapperClassName: "typewriter_text",
+          }}
+          onInit={(Typewriter) => {
+            Typewriter.typeString("Rules:").start();
+            <p className="rule">
+              $
+              {Typewriter.typeString(
+                "1. Any live cell with two or three liveneighbours survives. "
+              )}
+            </p>;
+
+            Typewriter.typeString(
+              "2. Any dead cell with three live neighbours becomes a live cell."
+            );
+            Typewriter.typeString(
+              "3. All other live cells die in the next generation. Similarly, all other dead cells stay dead."
+            );
+            Typewriter.typeString(
+              "P.S. Feel free to experiment with grid and create new forms. If you're too lazy for that, just press Random and then Start."
+            );
+          }}
+        />
+      </div>
       <div
         style={{
           display: "grid",
@@ -120,7 +146,7 @@ function App() {
                 marginLeft: "24vw",
                 width: 20,
                 height: 20,
-                backgroundColor: grid[i][k] ? "lightblue" : undefined,
+                backgroundColor: grid[i][k] ? "#FF10F0" : undefined,
                 border: "solid 1px white",
               }}
             />
