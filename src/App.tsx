@@ -99,7 +99,7 @@ function App() {
         Clear
       </button>
       <div className="rules">
-        <h4 style={{ textAlign: "center" }}>Rules</h4>
+        <h4 style={{ textAlign: "center" }}>Rules:</h4>
         <p>1. Any live cell with two or three live neighbours survives.</p>
         <p>2. Any dead cell with three live neighbours becomes a live cell.</p>
         <p>
