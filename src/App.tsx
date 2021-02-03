@@ -66,38 +66,41 @@ function App() {
 
   return (
     <div className="App">
-      <button
-        onClick={() => {
-          setRunning(!running);
-          if (!running) {
-            runningRef.current = true;
-            runSimulation();
-          }
-        }}
-      >
-        {running ? "Stop" : "Start"}
-      </button>
-      <button
-        onClick={() => {
-          const rows = [];
-          for (let i = 0; i < numRows; i++) {
-            rows.push(
-              Array.from(Array(numCols), () => (Math.random() > 0.7 ? 0 : 1))
-            );
-          }
+      <div className="buttonWrapper">
+        <button
+          onClick={() => {
+            setRunning(!running);
+            if (!running) {
+              runningRef.current = true;
+              runSimulation();
+            }
+          }}
+        >
+          {running ? "Stop" : "Start"}
+        </button>
+        <button
+          onClick={() => {
+            const rows = [];
+            for (let i = 0; i < numRows; i++) {
+              rows.push(
+                Array.from(Array(numCols), () => (Math.random() > 0.7 ? 0 : 1))
+              );
+            }
 
-          setGrid(rows);
-        }}
-      >
-        Random
-      </button>
-      <button
-        onClick={() => {
-          setGrid(generateEmptyGrid());
-        }}
-      >
-        Clear
-      </button>
+            setGrid(rows);
+          }}
+        >
+          Random
+        </button>
+        <button
+          onClick={() => {
+            setGrid(generateEmptyGrid());
+          }}
+        >
+          Clear
+        </button>
+      </div>
+
       <div className="rules">
         <h4 style={{ textAlign: "center" }}>Rules:</h4>
         <p>1. Any live cell with two or three live neighbours survives.</p>
@@ -107,8 +110,8 @@ function App() {
           other dead cells stay dead.
         </p>
         <p>
-          <b> P.S. </b>Feel free to experiment with grid and create new forms.
-          If you're too lazy for that, just press Random and then Start.
+          P.S. Feel free to experiment with grid and create new forms. If you're
+          too lazy for that, just press Random and then Start.
         </p>
       </div>
       <div
